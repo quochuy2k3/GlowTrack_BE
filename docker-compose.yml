@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.docker-compose
+
+  db:
+    container_name: glowTrack
+    image: mongo:latest
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: glowTrack
+    volumes:
+      - mongodb_data:/data/db
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  mongodb_data:
