@@ -25,10 +25,6 @@ class OTPVerifyRequest(BaseModel):
     email: str
     otp: str
 
-SENDER_EMAIL = "voquochuy3006@gmail.com"
-SENDER_PASSWORD = "Baopro123@"
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
 
 
 @router.post("/send-otp", response_description="Sign In")
